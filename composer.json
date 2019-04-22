@@ -1,0 +1,9 @@
+{
+  "name": "phlexus/phlexus-admin-module",
+  "description": "Phlexus Admin Module",
+  "autoload": {
+    "psr-4": {
+      "Phlexus\\Modules\\Admin\\": "src/"
+    }
+  }
+}
