@@ -1,9 +1,17 @@
 {
-  "name": "phlexus/phlexus-admin-module",
-  "description": "Phlexus Admin Module",
-  "autoload": {
-    "psr-4": {
-      "Phlexus\\Modules\\Admin\\": "src/"
+    "name": "phlexus/phlexus-admin-module",
+    "description": "Phlexus Admin Module",
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phlexus\\Modules\\Admin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     }
-  }
 }
