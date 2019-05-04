@@ -1,6 +1,9 @@
 {
     "name": "phlexus/phlexus-admin-module",
     "description": "Phlexus Admin Module",
+    "require": {
+        "phlexus/phlexus-core": "dev-master"
+    },
     "require-dev": {
         "phpunit/phpunit": "^8"
     },
