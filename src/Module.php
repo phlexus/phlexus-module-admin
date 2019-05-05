@@ -63,6 +63,6 @@ class Module extends PhlexusModule
             }
         ]);
         $view->setMainView($themePath .  '/layouts/default');
-        $view->setViewsDir($themePath . '/');
+        $view->setViewsDir($themePath . '/views/');
     }
 }
