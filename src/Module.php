@@ -55,8 +55,8 @@ class Module extends PhlexusModule
             '.volt' => function ($view) use ($cacheDir) {
                 $volt = new Volt($view, $this);
                 $volt->setOptions([
-                    'compiledPath' => $cacheDir,
-                    'compiledSeparator' => '_',
+                    'path' => $cacheDir,
+                    'separator' => '_',
                 ]);
 
                 return $volt;
