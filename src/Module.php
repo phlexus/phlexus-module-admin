@@ -52,11 +52,10 @@ class Module extends PhlexusModule
         $cacheDir = $theme->themes_dir_cache;
 
         $view->registerEngines([
-            '.volt' => function ($view) use ($cacheDir) {
-                $volt = new Volt($view, $this);
+            '.volt' => function ($view) use ($cacheDir, $di) {
+                $volt = new Volt($view, $di);
                 $volt->setOptions([
                     'path' => $cacheDir,
-                    'separator' => '_',
                 ]);
 
                 return $volt;
