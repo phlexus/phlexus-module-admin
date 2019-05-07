@@ -16,6 +16,11 @@ final class AuthController extends Controller
 
     }
 
+    public function doLoginAction(): void
+    {
+
+    }
+
     public function remindAction(): void
     {
 
