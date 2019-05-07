@@ -6,7 +6,17 @@ use Phalcon\Mvc\Controller;
 
 final class AuthController extends Controller
 {
+    public function initialize(): void
+    {
+
+    }
+
     public function loginAction(): void
+    {
+
+    }
+
+    public function restoreAction(): void
     {
 
     }
