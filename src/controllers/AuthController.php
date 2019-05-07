@@ -16,7 +16,7 @@ final class AuthController extends Controller
 
     }
 
-    public function restoreAction(): void
+    public function remindAction(): void
     {
 
     }
