@@ -61,7 +61,7 @@ class Module extends PhlexusModule
                 return $volt;
             }
         ]);
-        $view->setMainView($themePath .  '/layouts/default');
+        $view->setMainView($themePath .  '/views/layouts/default');
         $view->setViewsDir($themePath . '/views/');
     }
 }
