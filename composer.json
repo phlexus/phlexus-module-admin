@@ -2,7 +2,6 @@
     "name": "phlexus/phlexus-admin-module",
     "description": "Phlexus Admin Module",
     "require": {
-        "phlexus/phlexus-core": "dev-master",
         "phlexus/phlexus-auth-library": "dev-master"
     },
     "require-dev": {
