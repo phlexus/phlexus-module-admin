@@ -21,7 +21,10 @@ final class AuthController extends Controller
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        $login = $this->auth->login($email, $password);
+        $login = $this->auth->login([
+            'email' => $email,
+            'password' => $password,
+        ]);
         var_dump($login); exit;
     }
 
