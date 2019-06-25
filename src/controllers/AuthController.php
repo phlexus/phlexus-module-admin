@@ -18,7 +18,11 @@ final class AuthController extends Controller
 
     public function doLoginAction(): void
     {
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
 
+        $login = $this->auth->login($email, $password);
+        var_dump($login); exit;
     }
 
     public function remindAction(): void
