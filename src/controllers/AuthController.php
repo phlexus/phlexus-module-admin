@@ -2,22 +2,32 @@
 
 namespace Phlexus\Modules\Admin\Controllers;
 
+use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Controller;
 
 final class AuthController extends Controller
 {
-    public function initialize(): void
-    {
-
-    }
-
+    /**
+     * Login page
+     *
+     * @return void
+     */
     public function loginAction(): void
     {
-
+        // Nothing here, just output login form
     }
 
-    public function doLoginAction(): void
+    /**
+     * Login POST request handler
+     *
+     * @return ResponseInterface
+     */
+    public function doLoginAction(): ResponseInterface
     {
+        if (!$this->request->isPost()) {
+            return $this->response->redirect('admin/auth');
+        }
+
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
@@ -25,16 +35,27 @@ final class AuthController extends Controller
             'email' => $email,
             'password' => $password,
         ]);
-        var_dump($login); exit;
+        if ($login === false) {
+            return $this->response->redirect('admin/auth');
+        }
+
+        return $this->response->redirect('admin');
+    }
+
+    /**
+     * Logout POST request handler
+     *
+     * @return ResponseInterface
+     */
+    public function logoutAction(): ResponseInterface
+    {
+        $this->auth->logout();
+
+        return $this->response->redirect('admin/auth');
     }
 
     public function remindAction(): void
     {
-
-    }
-
-    public function logoutAction(): void
-    {
-
+        // TODO: implement
     }
 }
