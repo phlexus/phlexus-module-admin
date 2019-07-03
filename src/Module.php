@@ -19,7 +19,7 @@ class Module extends PhlexusModule
      */
     public function getHandlersNamespace(): string
     {
-        return 'Phlexus\Modules\Admin';
+        return 'Phlexus\Modules\PhlexusAdmin';
     }
 
     /**
