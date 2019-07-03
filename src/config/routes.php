@@ -6,7 +6,7 @@ $routes = new RouterGroup([
     'module' => 'admin',
     'controller' => 'index',
     'action' => 'index',
-    'namespace' => 'Phlexus\Modules\Admin\Controllers',
+    'namespace' => 'Phlexus\Modules\PhlexusAdmin\Controllers',
 ]);
 
 $routes->addGet('/admin', [

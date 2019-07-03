@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Phlexus\Modules\Admin;
+namespace Phlexus\Modules\PhlexusAdmin;
 
 use Phalcon\DiInterface;
 use Phalcon\Loader;

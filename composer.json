@@ -11,17 +11,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Phlexus\\Modules\\Admin\\": "src/"
+            "Phlexus\\Modules\\PhlexusAdmin\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
         }
-    },
-    "scripts": {
-        "post-package-install": "Phlexus\\ThemeManager::install",
-        "post-package-update": "Phlexus\\ThemeManager::update",
-        "post-package-uninstall": "Phlexus\\ThemeManager::uninstall"
     }
 }

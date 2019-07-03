@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Phlexus\Modules\Admin\Controllers;
+namespace Phlexus\Modules\PhlexusAdmin\Controllers;
 
 use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Controller;
