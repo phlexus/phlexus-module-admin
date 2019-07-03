@@ -15,6 +15,13 @@ use Phlexus\Module as PhlexusModule;
 class Module extends PhlexusModule
 {
     /**
+     * Name of theme
+     *
+     * Which is also folder name inside themes folder.
+     */
+    const PHLEXUS_ADMIN_THEME_NAME = 'phlexus-tabler-admin-theme';
+
+    /**
      * @return string
      */
     public function getHandlersNamespace(): string
@@ -48,7 +55,7 @@ class Module extends PhlexusModule
         $view = $di->getShared('view');
         $theme = $di->getShared('config')->get('theme');
 
-        $themePath = $theme->themes_dir . $theme->theme_admin;
+        $themePath = $theme->themes_dir . self::PHLEXUS_ADMIN_THEME_NAME;
         $cacheDir = $theme->themes_dir_cache;
 
         $view->registerEngines([
