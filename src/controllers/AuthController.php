@@ -19,7 +19,7 @@ class AuthController extends Controller
      */
     public function loginAction(): void
     {
-        $this->view->setMainView('layouts/base');
+        $this->view->setMainView('auth/login');
     }
 
     /**
