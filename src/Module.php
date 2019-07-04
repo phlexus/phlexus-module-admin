@@ -38,7 +38,7 @@ class Module extends PhlexusModule
     public function registerAutoloaders(DiInterface $di = null)
     {
         $namespaces = [
-            $this->getHandlersNamespace() . '\\Controllers' => __DIR__ . '/controllers/',
+            $this->getHandlersNamespace() . '\\Controllers' => __DIR__ . '/Controllers/',
         ];
 
         $loader = new Loader();
