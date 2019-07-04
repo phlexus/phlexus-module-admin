@@ -4,7 +4,7 @@ namespace Phlexus\Modules\PhlexusAdmin\Controllers;
 
 use Phalcon\Mvc\Controller;
 
-final class IndexController extends Controller
+class IndexController extends Controller
 {
     public function indexAction(): void
     {

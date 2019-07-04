@@ -5,7 +5,7 @@ namespace Phlexus\Modules\PhlexusAdmin\Controllers;
 use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Controller;
 
-final class AuthController extends Controller
+class AuthController extends Controller
 {
     /**
      * Login page
