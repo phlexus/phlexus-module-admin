@@ -29,7 +29,7 @@ $routes->addGet('/admin/auth/remind', [
     'action' => 'remind',
 ]);
 
-$routes->addPost('/admin/auth/logout', [
+$routes->addGet('/admin/auth/logout', [
     'controller' => 'auth',
     'action' => 'logout',
 ]);
