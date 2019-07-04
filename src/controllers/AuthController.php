@@ -5,6 +5,11 @@ namespace Phlexus\Modules\PhlexusAdmin\Controllers;
 use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Controller;
 
+/**
+ * Class AuthController
+ *
+ * @package Phlexus\Modules\PhlexusAdmin\Controllers
+ */
 class AuthController extends Controller
 {
     /**
@@ -14,7 +19,7 @@ class AuthController extends Controller
      */
     public function loginAction(): void
     {
-        // Nothing here, just output login form
+        $this->view->setMainView('layouts/base');
     }
 
     /**
