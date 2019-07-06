@@ -55,7 +55,9 @@ class AuthController extends Controller
      */
     public function logoutAction(): ResponseInterface
     {
-        $this->auth->logout();
+        if ($this->auth->isLogged()) {
+            $this->auth->logout();
+        }
 
         return $this->response->redirect('admin/auth');
     }
