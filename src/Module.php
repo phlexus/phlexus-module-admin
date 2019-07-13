@@ -57,6 +57,7 @@ class Module extends PhlexusModule
 
         $themePath = $theme->themes_dir . self::PHLEXUS_ADMIN_THEME_NAME;
         $cacheDir = $theme->themes_dir_cache;
+        $defaultBaseLayout = $themePath . '/views/layouts/default';
 
         $view->registerEngines([
             '.volt' => function ($view) use ($cacheDir, $di) {
@@ -68,7 +69,8 @@ class Module extends PhlexusModule
                 return $volt;
             }
         ]);
-        $view->setMainView($themePath . '/views/layouts/default');
+        $view->setMainView($defaultBaseLayout);
         $view->setViewsDir($themePath . '/views/');
+        $view->setVar('defaultBaseLayout', $defaultBaseLayout);
     }
 }
