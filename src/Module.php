@@ -19,7 +19,7 @@ class Module extends PhlexusModule
      *
      * Which is also folder name inside themes folder.
      */
-    const PHLEXUS_ADMIN_THEME_NAME = 'phlexus-tabler-admin-theme';
+    const PHLEXUS_ADMIN_THEME_NAME = 'phlexus-tabler-base-admin-theme';
 
     /**
      * @return string
