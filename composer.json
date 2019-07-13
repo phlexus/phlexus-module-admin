@@ -4,7 +4,7 @@
     "require": {
         "phlexus/phlexus-core": "dev-master",
         "phlexus/phlexus-auth-library": "dev-master",
-        "phlexus/phlexus-tabler-admin-theme": "dev-master"
+        "phlexus/phlexus-tabler-base-admin-theme": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^8"
