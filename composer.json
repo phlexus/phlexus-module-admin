@@ -3,7 +3,7 @@
     "description": "Phlexus Admin Module",
     "require": {
         "phlexus/phlexus-core": "dev-master",
-        "phlexus/phlexus-auth-library": "dev-master",
+        "phlexus/phlexus-auth-library": "0.0.1-beta.1",
         "phlexus/phlexus-tabler-base-admin-theme": "dev-master"
     },
     "require-dev": {
