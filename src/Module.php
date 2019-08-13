@@ -2,7 +2,7 @@
 
 namespace Phlexus\Modules\PhlexusAdmin;
 
-use Phalcon\DiInterface;
+use Phalcon\Di\DiInterface;
 use Phalcon\Loader;
 use Phalcon\Mvc\View\Engine\Volt;
 use Phlexus\Module as PhlexusModule;
