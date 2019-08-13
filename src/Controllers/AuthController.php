@@ -30,6 +30,8 @@ class AuthController extends Controller
      */
     public function doLoginAction(): ResponseInterface
     {
+        $this->view->disable();
+
         if (!$this->request->isPost()) {
             return $this->response->redirect('admin/auth');
         }
@@ -55,6 +57,8 @@ class AuthController extends Controller
      */
     public function logoutAction(): ResponseInterface
     {
+        $this->view->disable();
+
         if ($this->auth->isLogged()) {
             $this->auth->logout();
         }
