@@ -1,13 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace Phlexus\Modules\PhlexusAdmin\Controllers;
+namespace Phlexus\Modules\BaseAdmin\Controllers;
 
-use Phalcon\Mvc\Controller;
-
-class IndexController extends Controller
+/**
+ * Class IndexController
+ *
+ * @package Phlexus\Modules\Admin\Controllers
+ */
+final class IndexController extends AbstractController
 {
+    /**
+     * @return void
+     */
     public function indexAction(): void
     {
-
+        $this->tag->setTitle('Dashboard');
     }
 }

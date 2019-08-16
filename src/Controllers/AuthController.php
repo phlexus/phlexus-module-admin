@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Phlexus\Modules\PhlexusAdmin\Controllers;
+namespace Phlexus\Modules\BaseAdmin\Controllers;
 
 use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Controller;
@@ -8,7 +8,7 @@ use Phalcon\Mvc\Controller;
 /**
  * Class AuthController
  *
- * @package Phlexus\Modules\PhlexusAdmin\Controllers
+ * @package Phlexus\Modules\Admin\Controllers
  */
 class AuthController extends Controller
 {

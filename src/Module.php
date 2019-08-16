@@ -1,11 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Phlexus\Modules\PhlexusAdmin;
+namespace Phlexus\Modules\BaseAdmin;
 
 use Phalcon\Di\DiInterface;
 use Phalcon\Loader;
 use Phalcon\Mvc\View\Engine\Volt;
 use Phlexus\Module as PhlexusModule;
+use Phlexus\Modules\BaseAdmin\Events\Listeners\AuthenticationListener;
+use Phlexus\Modules\BaseAdmin\Events\Listeners\DispatcherListener;
 
 /**
  * Admin Module
@@ -26,7 +28,7 @@ class Module extends PhlexusModule
      */
     public function getHandlersNamespace(): string
     {
-        return 'Phlexus\Modules\PhlexusAdmin';
+        return 'Phlexus\Modules\BaseAdmin';
     }
 
     /**
@@ -57,7 +59,6 @@ class Module extends PhlexusModule
 
         $themePath = $theme->themes_dir . self::PHLEXUS_ADMIN_THEME_NAME;
         $cacheDir = $theme->themes_dir_cache;
-        $defaultBaseLayout = $themePath . '/views/layouts/default';
 
         $view->registerEngines([
             '.volt' => function ($view) use ($cacheDir, $di) {
@@ -69,8 +70,11 @@ class Module extends PhlexusModule
                 return $volt;
             }
         ]);
-        $view->setMainView($defaultBaseLayout);
-        $view->setViewsDir($themePath . '/views/');
-        $view->setVar('defaultBaseLayout', $defaultBaseLayout);
+
+        $view->setMainView($themePath . '/layouts/default');
+        $view->setViewsDir($themePath . '/');
+
+        $di->getShared('eventsManager')->attach('dispatch', new DispatcherListener());
+        $di->getShared('eventsManager')->attach('dispatch:beforeDispatchLoop', new AuthenticationListener());
     }
 }

@@ -3,10 +3,10 @@
 use Phalcon\Mvc\Router\Group as RouterGroup;
 
 $routes = new RouterGroup([
-    'module' => 'phlexusadmin',
+    'module' => 'baseadmin',
     'controller' => 'index',
     'action' => 'index',
-    'namespace' => 'Phlexus\Modules\PhlexusAdmin\Controllers',
+    'namespace' => 'Phlexus\Modules\BaseAdmin\Controllers',
 ]);
 
 $routes->addGet('/admin', [
