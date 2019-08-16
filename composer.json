@@ -2,7 +2,7 @@
     "name": "phlexus/phlexus-admin-module",
     "description": "Phlexus Admin Module",
     "require": {
-        "phlexus/phlexus-core": "0.0.1-beta.2",
+        "phlexus/phlexus-core": "0.0.1-beta.3",
         "phlexus/phlexus-auth-library": "0.0.1-beta.1",
         "phlexus/phlexus-tabler-base-admin-theme": "dev-master"
     },
@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Phlexus\\Modules\\PhlexusAdmin\\": "src/"
+            "Phlexus\\Modules\\Admin\\": "src/"
         }
     },
     "autoload-dev": {
