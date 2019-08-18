@@ -21,14 +21,24 @@ class Module extends PhlexusModule
      *
      * Which is also folder name inside themes folder.
      */
-    const PHLEXUS_ADMIN_THEME_NAME = 'phlexus-tabler-base-admin-theme';
+    const PHLEXUS_ADMIN_THEME_NAME = 'phlexus-tabler-admin';
 
     /**
      * @return string
      */
-    public function getHandlersNamespace(): string
+    public static function getModuleName(): string
     {
-        return 'Phlexus\Modules\BaseAdmin';
+        $namespaceParts = explode('\\', __NAMESPACE__);
+
+        return end($namespaceParts);
+    }
+
+    /**
+     * @return string
+     */
+    public static function getHandlersNamespace(): string
+    {
+        return __NAMESPACE__;
     }
 
     /**
@@ -39,13 +49,12 @@ class Module extends PhlexusModule
      */
     public function registerAutoloaders(DiInterface $di = null)
     {
-        $namespaces = [
-            $this->getHandlersNamespace() . '\\Controllers' => __DIR__ . '/Controllers/',
-        ];
-
-        $loader = new Loader();
-        $loader->registerNamespaces($namespaces);
-        $loader->register();
+        (new Loader())
+            ->registerNamespaces([
+                self::getHandlersNamespace() . '\\Controllers' => __DIR__ . '/Controllers/',
+                self::getHandlersNamespace() . '\\Events' => __DIR__ . '/Events/',
+            ])
+            ->register();
     }
 
     /**
