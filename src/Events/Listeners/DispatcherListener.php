@@ -12,6 +12,7 @@ use Phlexus\Libraries\Auth\AuthException;
 use Phlexus\Module\ModuleException;
 use Phlexus\Module\ModuleInterface;
 use Phlexus\Modules\BaseAdmin\Module as AdminModule;
+use Phalcon\Application\Exception as ApplicationException;
 
 final class DispatcherListener extends Plugin
 {
@@ -85,6 +86,19 @@ final class DispatcherListener extends Plugin
                 'namespace' => $namespace,
                 'controller' => 'auth',
                 'action' => 'login',
+            ]);
+
+            $event->stop();
+        }
+
+        if ($exception instanceof ApplicationException) {
+            $this->response->setStatusCode(500);
+
+            $dispatcher->forward([
+                'module' => $moduleName,
+                'namespace' => $namespace,
+                'controller' => 'errors',
+                'action' => 'show500',
             ]);
 
             $event->stop();
