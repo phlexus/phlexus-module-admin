@@ -4,13 +4,14 @@ namespace Phlexus\Modules\BaseAdmin\Events\Listeners;
 
 use Exception;
 use Phalcon\Di\Exception as DiException;
-use Phalcon\Plugin;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher;
+use Phalcon\Mvc\Dispatcher\Exception as MvcDispatcherException;
+use Phalcon\Plugin;
 use Phlexus\Libraries\Auth\AuthException;
 use Phlexus\Module\ModuleException;
 use Phlexus\Module\ModuleInterface;
-use Phalcon\Mvc\Dispatcher\Exception as MvcDispatcherException;
+use Phlexus\Modules\BaseAdmin\Module as AdminModule;
 
 final class DispatcherListener extends Plugin
 {
@@ -62,11 +63,14 @@ final class DispatcherListener extends Plugin
      */
     public function beforeException(Event $event, Dispatcher $dispatcher, Exception $exception): bool
     {
+        $moduleName = AdminModule::getModuleName();
+        $namespace = AdminModule::getHandlersNamespace() . '\\Controllers';
+
         if ($exception instanceof MvcDispatcherException) {
             $this->response->setStatusCode(404);
             $dispatcher->forward([
-                'module' => 'Admin',
-                'namespace' => 'Phlexus\Modules\Admin\Controllers',
+                'module' => $moduleName,
+                'namespace' => $namespace,
                 'controller' => 'errors',
                 'action' => 'show404',
             ]);
@@ -77,8 +81,8 @@ final class DispatcherListener extends Plugin
         if ($exception instanceof AuthException) {
             $this->response->setStatusCode(402);
             $dispatcher->forward([
-                'module' => 'Admin',
-                'namespace' => 'Phlexus\Modules\Admin\Controllers',
+                'module' => $moduleName,
+                'namespace' => $namespace,
                 'controller' => 'auth',
                 'action' => 'login',
             ]);
