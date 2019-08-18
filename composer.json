@@ -3,8 +3,7 @@
     "description": "Phlexus Admin Module",
     "require": {
         "phlexus/phlexus-core": "0.0.1-beta.7",
-        "phlexus/phlexus-auth-library": "0.0.1-beta.1",
-        "phlexus/phlexus-tabler-base-admin-theme": "dev-master"
+        "phlexus/phlexus-auth-library": "0.0.1-beta.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^8",
