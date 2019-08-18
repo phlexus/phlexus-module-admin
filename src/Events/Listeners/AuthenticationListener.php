@@ -6,6 +6,7 @@ use Phalcon\Events\Event;
 use Phalcon\Mvc\DispatcherInterface;
 use Phalcon\Plugin;
 use Phlexus\Libraries\Auth\AuthException;
+use Phlexus\Modules\BaseAdmin\Module as AdminModule;
 
 final class AuthenticationListener extends Plugin
 {
@@ -44,10 +45,10 @@ final class AuthenticationListener extends Plugin
         $router = $this->getDI()->getShared('router');
         $config = $this->getDI()->getShared('config')->toArray();
 
-        $excludeRoutes = $config['auth']['exclude_routes'] ?? [];
         $module = $router->getModuleName();
         $controller = $router->getControllerName();
         $action = $router->getActionName();
+        $excludeRoutes = array_merge($this->getDefaultExcludedRoutes(), $config['auth']['exclude_routes'] ?? []);
 
         // Check of module is in exclude array
         if (!isset($excludeRoutes[$module])) {
@@ -75,5 +76,19 @@ final class AuthenticationListener extends Plugin
         }
 
         return true;
+    }
+
+    /**
+     * Default excluded actions
+     *
+     * @return array
+     */
+    protected function getDefaultExcludedRoutes(): array
+    {
+        return [
+            AdminModule::getModuleName() => [
+                'auth' => ['login', 'doLogin', 'logout'],
+            ],
+        ];
     }
 }
