@@ -20,7 +20,7 @@ class AuthController extends Controller
     public function loginAction(): void
     {
         $this->tag->setTitle('Phlexus CMS');
-        $this->view->setMainView('auth/login');
+        $this->view->setMainView('layouts/base');
     }
 
     /**
