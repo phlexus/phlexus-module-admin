@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 namespace Phlexus\Modules\BaseAdmin\Events\Listeners;
 
+use Phalcon\Di\Injectable;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\DispatcherInterface;
-use Phalcon\Plugin;
 use Phlexus\Libraries\Auth\AuthException;
 use Phlexus\Modules\BaseAdmin\Module as AdminModule;
 
-final class AuthenticationListener extends Plugin
+final class AuthenticationListener extends Injectable
 {
     /**
      * This action is executed before execute any action in the application.

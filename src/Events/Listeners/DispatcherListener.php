@@ -4,18 +4,18 @@ declare(strict_types=1);
 namespace Phlexus\Modules\BaseAdmin\Events\Listeners;
 
 use Exception;
+use Phalcon\Application\Exception as ApplicationException;
 use Phalcon\Di\Exception as DiException;
+use Phalcon\Di\Injectable;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\Dispatcher\Exception as MvcDispatcherException;
-use Phalcon\Plugin;
 use Phlexus\Libraries\Auth\AuthException;
 use Phlexus\Module\ModuleException;
 use Phlexus\Module\ModuleInterface;
 use Phlexus\Modules\BaseAdmin\Module as AdminModule;
-use Phalcon\Application\Exception as ApplicationException;
 
-final class DispatcherListener extends Plugin
+final class DispatcherListener extends Injectable
 {
     /**
      * Before forwarding is happening.
