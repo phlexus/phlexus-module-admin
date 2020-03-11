@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * This file is part of the Phlexus CMS.
+ *
+ * (c) Phlexus CMS <cms@phlexus.io>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Phlexus\Modules\BaseAdmin;
@@ -12,8 +22,6 @@ use Phlexus\Modules\BaseAdmin\Events\Listeners\DispatcherListener;
 
 /**
  * Admin Module
- *
- * @package Phlexus\Modules\Admin
  */
 class Module extends PhlexusModule
 {
