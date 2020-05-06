@@ -11,8 +11,8 @@ $routes = new RouterGroup([
 ]);
 
 $routes->addGet('/admin', [
-    'controller' => 1,
-    'action' => 2,
+    'controller' => 'auth',
+    'action' => 'index',
 ]);
 
 $routes->addGet('/admin/auth', [

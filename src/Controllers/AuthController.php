@@ -22,6 +22,8 @@ class AuthController extends Controller
     {
         $this->tag->setTitle('Phlexus CMS');
         $this->view->setMainView('layouts/base');
+        
+        $this->view->form = new \Phlexus\Modules\BaseAdmin\Form\LoginForm();
     }
 
     /**
@@ -30,21 +32,37 @@ class AuthController extends Controller
      * @return ResponseInterface
      */
     public function doLoginAction(): ResponseInterface
-    {
+    {        
         $this->view->disable();
 
-        if (!$this->request->isPost()) {
-            return $this->response->redirect('admin/auth');
+        if ($this->request->isPost()) {
+            $form = new \Phlexus\Modules\BaseAdmin\Form\LoginForm();
+
+            $data = $this->request->getPost();
+
+            try {
+                if (!$form->isValid($data)) {
+                    foreach ($form->getMessages() as $message) {
+                        $this->flash->error($message->getMessage());
+                    }
+
+                    return $this->response->redirect('admin/auth');
+                }
+
+                $email = $data['email'];
+                $password = $data['password'];
+                
+                $login = $this->auth->login([
+                    'email' => $email,
+                    'password' => $password,
+                ]);
+            } catch (AuthException $e) {
+                $this->flash->error($e->getMessage());
+            }
         }
-
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
-
-        $login = $this->auth->login([
-            'email' => $email,
-            'password' => $password,
-        ]);
+        
         if ($login === false) {
+            $this->flash->error('Invalid auth data!');
             return $this->response->redirect('admin/auth');
         }
 
