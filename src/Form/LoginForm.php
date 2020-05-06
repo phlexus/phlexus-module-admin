@@ -20,7 +20,6 @@ use Phalcon\Validation\Validator\PresenceOf;
 
 class LoginForm extends FormBase
 {
-    
     /**
      * Initialize form
      */
