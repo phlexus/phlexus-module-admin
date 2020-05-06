@@ -32,7 +32,7 @@ class AuthController extends Controller
      * @return ResponseInterface
      */
     public function doLoginAction(): ResponseInterface
-    {        
+    {
         $this->view->disable();
 
         if ($this->request->isPost()) {
