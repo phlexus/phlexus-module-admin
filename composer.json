@@ -1,5 +1,6 @@
 {
-    "name": "phlexus/phlexus-admin-module",
+    "name": "phlexus/phlexus-module-admin",
+    "license": "BSD-3-Clause",
     "description": "Phlexus Admin Module",
     "require": {
         "phlexus/phlexus-core": "^0.1",
