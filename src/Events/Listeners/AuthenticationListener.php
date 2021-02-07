@@ -8,7 +8,6 @@ use Phalcon\Events\Event;
 use Phalcon\Mvc\DispatcherInterface;
 use Phlexus\Libraries\Auth\AuthException;
 use Phlexus\Modules\BaseAdmin\Module as AdminModule;
-use Phlexus\Libraries\Auth\Manager as AuthManager;
 
 final class AuthenticationListener extends Injectable
 {
@@ -30,14 +29,14 @@ final class AuthenticationListener extends Injectable
                 new AuthException('User is not authorized.')
             );
         }
-        
+
         // TODO: Verify if user can login or passwords exceeded
-        $this->getDI()->getShared('eventsManager')->attach(
-            'auth:beforeLogin',
-            function (Event $event, AuthManager $manager, $data) {
-                return true;
-            }
-        );
+        //$this->getDI()->getShared('eventsManager')->attach(
+        //    'auth:beforeLogin',
+        //    function (Event $event, AuthManager $manager, $data) {
+        //        return true;
+        //    }
+       // );
 
         return !$event->isStopped();
     }
