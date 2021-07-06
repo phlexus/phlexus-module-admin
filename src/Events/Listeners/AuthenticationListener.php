@@ -30,6 +30,14 @@ final class AuthenticationListener extends Injectable
             );
         }
 
+        // TODO: Verify if user can login or passwords exceeded
+        //$this->getDI()->getShared('eventsManager')->attach(
+        //    'auth:beforeLogin',
+        //    function (Event $event, AuthManager $manager, $data) {
+        //        return true;
+        //    }
+       // );
+
         return !$event->isStopped();
     }
 
